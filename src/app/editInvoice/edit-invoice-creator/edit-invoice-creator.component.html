@@ -1,0 +1,211 @@
+<div class="container bcontent">
+    <form #createInvoice="ngForm" (ngSubmit)="onSubmit(createInvoice)">
+        <div class="card">
+            <div class="card-header text-right">
+                <img src="https://digitalmarketingdeal.com/uploads/listing/360/6558392e31ad0fee32aade04efac2f05.png"
+                    class="icon" width="100px" alt="">
+            </div>
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <h4 class="card-title">Create Invoice</h4>
+                    </div>
+                    <div class="col-sm-1  ms-auto">
+                        <button class="btn btn-info">Preview</button>
+                    </div>
+                    <div class="col-sm-2  ms-auto">
+                        <select name="" id="">
+                            <option value="" selected>Save</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                        </select>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button type="button" class="btn btn-sm btn-outline-dark">Save as draft</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="form-group row">
+                    <label for="createdBy" class="col-sm-2 col-form-label">Created By:</label>
+                    <div class="col-sm-3">
+
+                    </div>
+                    <label for="invoiceNumber" class="col-sm-2 col-form-label ms-auto">Invoice Number:</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="invoiceNumber" name="invoiceNumber"
+                            [ngModel]="alldata.invoiceNumber" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="namebill" class="col-sm-2 col-form-label">Name (Bill To):</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="namebill" name="customerName"
+                            [ngModel]="alldata.customerName">
+                    </div>
+                    <label for="date" class="col-sm-2 col-form-label ms-auto">Invoice Date:</label>
+                    <div class="col-sm-3">
+                        <input type="date" class="form-control" id="date" name="invoiceDate"
+                            [ngModel]="alldata.invoiceDate">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="address" class="col-sm-2 col-form-label">Address:</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="address" name="address" [ngModel]="alldata.address">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="contactNumber" class="col-sm-2 col-form-label">Contact Number:</label>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="contactNumber" name="contactNumber"
+                            [ngModel]="alldata.contactNumber">
+                    </div>
+                    <div class="col-sm-3 ms-auto">
+                        <select name="currency" id="currency" [(ngModel)]="currency">
+                            <option value="" selected hidden>Select currency</option>
+                            <option value="1">INR</option>
+                            <option value="2">USD</option>
+                        </select>
+
+                        <select name="state" id="state" class="mx-3" [(ngModel)]="state" [disabled]="currency === '2'">
+                            <option value="1" selected>Haryana</option>
+                            <option value="2">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-2 col-form-label">Email:</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="email" name="email" [ngModel]="alldata.email">
+                    </div>
+                </div>
+
+                <br><br><br><br>
+                <div class="row form-group" style="margin-left: 150px;">
+                    <div class="col-sm-3">
+                        <label for="">Description</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="">Quantity</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="">Price</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="">Amount</label>
+                    </div>
+                </div>
+
+                <div class="row form-group" *ngFor="let product of products; let i = index"
+                    style="margin-left: 150px; margin-top: 10px;">
+                    <!-- {{product}} -->
+                    <div class="col-sm-3">
+                        <p>{{product.Description}}</p>
+                    </div>
+                    <div class="col-sm-2">
+                        <p>{{product.Quantity}}</p>
+                    </div>
+                    <div class="col-sm-2">
+                        <p>{{product.Price}}</p>
+                    </div>
+                    <div class="col-sm-2">
+                        <p>{{product.Quantity * product.Price}}</p>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="button" class="btn alert-danger" (click)="onRemoveProduct(i)">X</button>
+                    </div>
+                </div>
+
+                <div class="row form-group" style="margin-left: 150px; margin-top: 10px;">
+                    <div class="col-sm-3">
+                        <input type="text" name="Description" class="form-control" [(ngModel)]="product.Description">
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="number" name="Quantity" class="form-control" [(ngModel)]='product.Quantity'>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="number" name="Price" class="form-control" [(ngModel)]='product.Price'>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="number" name="Amount" class="form-control"
+                            [(ngModel)]='product.Quantity*product.Price'>
+                    </div>
+                </div>
+
+                <br>
+                <button class="btn alert-primary col-sm-8" style="margin-left: 165px" type="button"
+                    (click)="onAddProduct()">
+                    Add
+                </button>
+                <br>
+                <hr><br>
+                <div>
+                    <table>
+                        <tr>
+                            <td>Subtotal</td>
+                            <td>{{Subtotal}}</td>
+                        </tr>
+                        <tr>
+                            <td>Discount</td>
+                            <td>{{Discount}}</td>
+                        </tr>
+                        <tr *ngIf="currency === '1'">
+                            <td>CGST @ 9%</td>
+                            <td>{{GST}}</td>
+                        </tr>
+                        <tr *ngIf="currency === '1'">
+                            <td>SGST @ 9%</td>
+                            <td>{{GST}}</td>
+                        </tr>
+                        <tr *ngIf="currency === '2'">
+                            <td>SGST @ 9%</td>
+                            <td>{{GST}}</td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td>{{Total}}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <br><br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <b> PAN Number</b> DDABC0760F <br>
+                        <b> GST Number</b> 12ABCDE0120F1X1 <br>
+                        <b> PAN Number</b> 154/CGST/Drvision-North/GGN/2017-18date04.10.2017
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="PointToRemember">Point To Remember</label><br>
+                        <textarea name="pointToRemember" id="PointToRemember" cols="30" rows="4"
+                            [ngModel]="alldata.pointToRemember">
+            </textarea>
+                    </div>
+                </div>
+                <br><br>
+            </div>
+
+            <div class="card-footer text-muted">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <strong>Bigstep Technologies Private Limited.</strong><br>
+                        2nd Floor, SCO-63 Judical Complex,<br>
+                        Sector 15, Gurgaon - 122001, Haryana, India
+                        <br>CIN: U77220HR2009PTC038717
+                    </div>
+                    <div class="col-sm-6 d-flex justify-content-end">
+                        Phone: +91-9136773059 <br>
+                        Email: info@bigsteptech.com <br>
+                        http://www.bigsteptech.com <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary mt-2" type="submit" [disabled]="!createInvoice.valid">Submit</button>
+        <br>
+    </form>
+</div>
+<br> <br> <br> <br>

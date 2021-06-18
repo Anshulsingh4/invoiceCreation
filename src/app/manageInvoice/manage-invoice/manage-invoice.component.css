@@ -1,0 +1,39 @@
+.card{
+    margin-top: 50px;
+    margin-right: 150px;
+    margin-left: 150px;
+    margin-bottom: 200px;
+}
+
+.design {
+    min-width: 220px;
+    color: white;
+    background-color: #dbd5d5;
+    border: 1px solid whitesmoke;
+}
+
+input.largeCheckbox {
+    width: 40px;
+    height: 27px;
+}
+
+select{
+    font-size:x-large;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black;
+  }
+  
+   td, th {
+    border: 1px solid #000;
+    text-align: center;
+    padding: 2px;
+  }
+
+  th {
+    background-color: #aaaaaa;
+  }

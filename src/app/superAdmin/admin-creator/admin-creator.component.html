@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-center my-5">
+    <button class='btn btn-success py-2' routerLink="/registerUser">
+        {{'Add New Creator'}}
+    </button>
+
+</div>
+
+<div class="mb-5 px-5 py-3">
+    <table>
+        <tr>
+            <th>NAME</th>
+            <th>POSITION</th>
+            <th>ACTION</th>
+        </tr>
+        <tr *ngFor="let record of allUser;">
+            <td>
+                {{record.name.toUpperCase()}}
+            </td>
+            <td class="edit">
+                {{record.role.toUpperCase()}}
+            </td>
+            <td class="edit">
+                <button class='btn btn-link' routerLink="/registerUser/{{record._id}}">EDIT</button>
+                |
+                <button class='btn btn-link' (click)=onDelete(record._id)>DELETE</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- (click)=onEdit(record._id) -->

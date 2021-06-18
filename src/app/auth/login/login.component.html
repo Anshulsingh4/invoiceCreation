@@ -1,0 +1,38 @@
+<body class="img js-fullheight"
+    style="background-image: url('https://res.cloudinary.com/anshulsingh4/image/upload/v1623658319/bg_jz1gn5.jpg');  height: 100vh; ">
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">BIGSTEP INVOICE PLUGIN</h2>
+                </div>
+            </div>
+            <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="dismiss">
+                Login Failed
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div> -->
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap p-0">
+                        <h3 class="mb-4 text-center">Login</h3>
+                        <form #login="ngForm" (ngSubmit)="onSubmit(login)">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Email" name='email' ngModel
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <input id="password-field" type="password" class="form-control" placeholder="Password"
+                                    name='password' ngModel required>
+                                <span toggle="#password-field"
+                                    class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

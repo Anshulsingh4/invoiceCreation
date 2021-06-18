@@ -1,0 +1,27 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid black;
+}
+
+ tr, th {
+  border: 1px solid #000;
+  text-align: center;
+  padding: 8px;
+}
+
+.edit {
+  border-left: 1px solid black;
+} 
+td {
+  text-align: center;
+  align-items: center;
+  }
+
+th {
+  background-color: #aaaaaa;
+}
+
+
+
